@@ -47,7 +47,7 @@ class LanguageController extends Controller
     public function show($id)
     {
         $language = Language::findOrFail($id);
-        return view('language.index', compact('language'));
+        return view('language.show', compact('language'));
 
     }
 

@@ -47,7 +47,7 @@ class QualificationController extends Controller
     public function show($id)
     {
         $qualification = Qualifications::findOrFail($id);
-        return view('qualification.index', compact('qualification'));
+        return view('qualification.show', compact('qualification'));
 
     }
 

@@ -8,6 +8,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">CitiesName</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>

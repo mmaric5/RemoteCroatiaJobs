@@ -47,7 +47,7 @@ class CountryController extends Controller
     public function show($id)
     {
         $country = Country::findOrFail($id);
-        return view('country.index', compact('country'));
+        return view('country.show', compact('country'));
 
     }
 

@@ -47,7 +47,7 @@ class TypeOfWorksController extends Controller
     public function show($id)
     {
         $typeOfWork = TypeOfWork::findOrFail($id);
-        return view('typeOfWork.index', compact('typeOfWork'));
+        return view('typeOfWorks.show', compact('typeOfWorks'));
 
     }
 

@@ -47,7 +47,7 @@ class RegionsController extends Controller
     public function show($id)
     {
         $region = Regions::findOrFail($id);
-        return view('region.index', compact('region'));
+        return view('region.show', compact('region'));
 
     }
 

@@ -47,7 +47,7 @@ class DrivingLicenseController extends Controller
     public function show($id)
     {
         $drivingLicense = DrivingLicense::findOrFail($id);
-        return view('drivingLicense.index', compact('drivingLicense'));
+        return view('drivingLicense.show', compact('drivingLicense'));
 
     }
 
