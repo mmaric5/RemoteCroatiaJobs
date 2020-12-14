@@ -20,40 +20,40 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Ads</a>
+        <a class="nav-link" href="{{ route('ads') }}">Ads</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Category</a>
+        <a class="nav-link" href="{{ route('category') }}">Category</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Cities</a>
+        <a class="nav-link" href="{{ route('cities') }}">Cities</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Companies</a>
+        <a class="nav-link" href="{{ route('companies') }}">Companies</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Continent</a>
+        <a class="nav-link" href="{{ route('continent') }}">Continent</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Country</a>
+        <a class="nav-link" href="{{ route('country') }}">Country</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">DrivingLicense</a>
+        <a class="nav-link" href="{{ route('drivingLicense') }}">DrivingLicense</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Language</a>
+        <a class="nav-link" href="{{ route('language') }}">Language</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Qualification</a>
+        <a class="nav-link" href="{{ route('qualification') }}">Qualification</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Region</a>
+        <a class="nav-link" href="{{ route('region') }}">Region</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">TypeOfWork</a>
+        <a class="nav-link" href="{{ route('typeOfWorks') }}">TypeOfWork</a>
       </li>
     </ul>
   </div>
