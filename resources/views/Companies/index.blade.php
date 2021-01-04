@@ -17,6 +17,10 @@
 <td>{{ $companies->id }}</td>
 <td>{{ $companies->name }}</td>
 <td>{{ $companies->address}}</td>
+<td>
+<a class="btn btn-outline-primary" href="{{ route('companies.show', ['companies' => $companies->id]) }}">Details</a>
+<a class="btn btn-outline-primary" href="{{ route('companies.edit', ['companies' => $companies->id]) }}">Edit</a>
+</td>
 </tr>
 @endforeach
   </tbody>

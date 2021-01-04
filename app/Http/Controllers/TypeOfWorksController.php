@@ -35,7 +35,11 @@ class TypeOfWorksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:typeOfWorks|max:255',
+        ]);
+        $ad = TypeOfWorks::create($validated);
+        return view('typeOfWorks.show', compact('typeOfWorks')); 
     }
 
     /**
@@ -59,7 +63,8 @@ class TypeOfWorksController extends Controller
      */
     public function edit($id)
     {
-        //
+        $typeOfWork = TypeOfWorks.findOrFail($id);
+        return view('typeOfWorks.edit', compact('typeOfWork'));
     }
 
     /**
@@ -71,7 +76,15 @@ class TypeOfWorksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:typeOfWork|max:255'
+        ]);
+
+        $typeOfWorks = TypeOfWorks.findOrFail($id);
+        $typeOfWorks->fill($validated);
+        $typeOfWorks->save();
+
+        return view('typeOfWorks.show', compact('typeOfWorks'));
     }
 
     /**

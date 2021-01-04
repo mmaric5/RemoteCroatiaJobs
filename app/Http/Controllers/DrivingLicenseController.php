@@ -35,7 +35,11 @@ class DrivingLicenseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:drivingLicense|max:255',
+        ]);
+        $ad = DrivingLicense::create($validated);
+        return view('drivingLicense.show', compact('drivingLicense')); 
     }
 
     /**
@@ -59,7 +63,8 @@ class DrivingLicenseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $drivingLicense = DrivingLicense.findOrFail($id);
+        return view('drivingLicenses.edit', compact('drivingLicense'));
     }
 
     /**
@@ -71,7 +76,15 @@ class DrivingLicenseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:drivingLicense|max:255'
+        ]);
+
+        $drivingLicenses = DrivingLicenses.findOrFail($id);
+        $drivingLicenses->fill($validated);
+        $drivingLicenses->save();
+
+        return view('drivingLicenses.show', compact('drivingLicenses'));
     }
 
     /**

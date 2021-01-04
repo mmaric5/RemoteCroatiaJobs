@@ -35,7 +35,11 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:country|max:255',
+        ]);
+        $ad = Country::create($validated);
+        return view('country.show', compact('country')); 
     }
 
     /**
@@ -59,7 +63,8 @@ class CountryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $country = Country.findOrFail($id);
+        return view('countries.edit', compact('country'));
     }
 
     /**
@@ -71,7 +76,15 @@ class CountryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:country|max:255'
+        ]);
+
+        $countries = Countries.findOrFail($id);
+        $countries->fill($validated);
+        $countries->save();
+
+        return view('countries.show', compact('countries'));
     }
 
     /**

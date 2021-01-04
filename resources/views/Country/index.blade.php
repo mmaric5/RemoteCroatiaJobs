@@ -17,6 +17,10 @@
 <tr>
 <td>{{ $country->id }}</td>
 <td>{{ $country->name }}</td>
+<td>
+<a class="btn btn-outline-primary" href="{{ route('country.show', ['country' => $country->id]) }}">Details</a>
+<a class="btn btn-outline-primary" href="{{ route('country.edit', ['country' => $country->id]) }}">Edit</a>
+</td>
 </tr>
 @endforeach
   </tbody>

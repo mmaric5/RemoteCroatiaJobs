@@ -16,6 +16,10 @@
 <tr>
 <td>{{ $category->id }}</td>
 <td>{{ $category->name }}</td>
+<td>
+<a class="btn btn-outline-primary" href="{{ route('category.show', ['category' => $category->id]) }}">Details</a>
+<a class="btn btn-outline-primary" href="{{ route('category.edit', ['category' => $category->id]) }}">Edit</a>
+</td>
 </tr>
 @endforeach
   </tbody>

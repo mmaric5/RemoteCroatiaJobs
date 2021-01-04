@@ -13,4 +13,8 @@ class Companies extends Model
         'name',
         'address'
     ];
+    
+    public function ads() { return $this->belongsTo(Ad::class); }
+    
+    public function cities() { return $this->hasMany(Cities::class); }
 }

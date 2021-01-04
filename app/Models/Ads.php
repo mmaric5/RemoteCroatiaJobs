@@ -18,4 +18,14 @@ class Ads extends Model
         'description',
         'category'
     ];
+
+    public function language() { return $this->hasMany(Language::class); }
+
+    public function qualification() { return $this->hasMany(Qualification::class); }
+
+    public function typeOfWork() { return $this->hasMany(TypeOfWorks::class); }
+
+    public function category() { return $this->hasMany(Category::class); }
+
+    public function companies() { return $this->hasMany(Company::class); }
 }

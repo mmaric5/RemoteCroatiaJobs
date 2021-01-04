@@ -35,7 +35,11 @@ class ContinentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:continent|max:255',
+        ]);
+        $ad = Continent::create($validated);
+        return view('continent.show', compact('continent')); 
     }
 
     /**
@@ -47,7 +51,7 @@ class ContinentController extends Controller
     public function show($id)
     {
         $continent = Continent::findOrFail($id);
-        return view('continent.index', compact('continent'));
+        return view('continent.show', compact('continent'));
 
     }
 
@@ -59,7 +63,8 @@ class ContinentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $continent = Continent.findOrFail($id);
+        return view('continents.edit', compact('continent'));
     }
 
     /**
@@ -71,7 +76,15 @@ class ContinentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:continent|max:255'
+        ]);
+
+        $continent = Continent.findOrFail($id);
+        $continent->fill($validated);
+        $continent->save();
+
+        return view('continents.show', compact('continents'));
     }
 
     /**

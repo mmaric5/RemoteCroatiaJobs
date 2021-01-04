@@ -35,7 +35,11 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:language|max:255',
+        ]);
+        $ad = Language::create($validated);
+        return view('language.show', compact('language')); 
     }
 
     /**
@@ -59,7 +63,8 @@ class LanguageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $language = Language.findOrFail($id);
+        return view('languages.edit', compact('language'));
     }
 
     /**
@@ -71,7 +76,15 @@ class LanguageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:language|max:255'
+        ]);
+
+        $languages = Languages.findOrFail($id);
+        $languages->fill($validated);
+        $languages->save();
+
+        return view('languages.show', compact('languages'));
     }
 
     /**

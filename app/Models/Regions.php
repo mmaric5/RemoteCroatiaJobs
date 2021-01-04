@@ -12,4 +12,8 @@ class Regions extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function cities() { return $this->belongsTo(Cities::class); }
+
+    public function countries() { return $this->hasMany(Country::class); }
 }

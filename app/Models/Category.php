@@ -12,4 +12,6 @@ class Category extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function ads() { return $this->belongsTo(Ad::class); }
 }

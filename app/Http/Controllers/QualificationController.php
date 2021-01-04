@@ -35,7 +35,11 @@ class QualificationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:qualification|max:255',
+        ]);
+        $ad = Qualification::create($validated);
+        return view('qualification.show', compact('qualification')); 
     }
 
     /**

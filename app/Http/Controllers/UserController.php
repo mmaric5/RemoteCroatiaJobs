@@ -35,9 +35,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:user|max:255',
+            'email' => 'required|unique:user|max:255',
+            'password' => 'required|unique:user|max:255',
+        ]);
+        $ad = User::create($validated);
+        return view('user.show', compact('user')); 
     }
-
     /**
      * Display the specified resource.
      *
@@ -58,7 +63,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = Country.findOrFail($id);
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -70,7 +76,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:user|max:255'
+        ]);
+
+        $users = Users.findOrFail($id);
+        $users->fill($validated);
+        $users->save();
+
+        return view('users.show', compact('users'));
     }
 
     /**

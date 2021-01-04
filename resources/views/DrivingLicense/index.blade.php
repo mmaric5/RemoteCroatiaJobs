@@ -16,6 +16,10 @@
 <tr>
 <td>{{ $drivingLicense->id }}</td>
 <td>{{ $drivingLicense->name }}</td>
+<td>
+<a class="btn btn-outline-primary" href="{{ route('drivingLicense.show', ['drivingLicense' => $drivingLicense->id]) }}">Details</a>
+<a class="btn btn-outline-primary" href="{{ route('drivingLicense.edit', ['drivingLicense' => $drivingLicense->id]) }}">Edit</a>
+</td>
 </tr>
 @endforeach
   </tbody>

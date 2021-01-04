@@ -35,7 +35,16 @@ class AdsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:ads|max:255',
+            'conditions' => 'required|unique:ads|max:255',
+            'whatDoWeOffer' => 'required|unique:ads|max:255',
+            'linkForApplication' => 'required|unique:ads|max:255',
+            'description' => 'required|unique:ads|max:255',
+            'category' => 'required|unique:ads|max:255'
+        ]);
+        $ad = Ads::create($validated);
+        return view('ads.show', compact('ads')); 
     }
 
     /**
@@ -58,7 +67,8 @@ class AdsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $country = Ads.findOrFail($id);
+        return view('ads.edit', compact('ads'));
     }
 
     /**
@@ -70,7 +80,20 @@ class AdsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:ads|max:255',
+            'conditions' => 'required|unique:ads|max:255',
+            'whatDoWeOffer' => 'required|unique:ads|max:255',
+            'linkForApplication' => 'required|unique:ads|max:255',
+            'description' => 'required|unique:ads|max:255',
+            'category' => 'required|unique:ads|max:255'
+        ]);
+
+        $ads = Ads.findOrFail($id);
+        $ads->fill($validated);
+        $ads->save();
+
+        return view('ads.show', compact('ads'));
     }
 
     /**

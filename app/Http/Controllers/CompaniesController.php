@@ -36,7 +36,12 @@ class CompaniesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:companies|max:255',
+            'address' => 'required|unique:companies|max:255'
+        ]);
+        $ad = Companies::create($validated);
+        return view('companies.show', compact('companies')); 
     }
 
     /**
@@ -59,7 +64,8 @@ class CompaniesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $companies = Company.findOrFail($id);
+        return view('companies.edit', compact('company'));
     }
 
     /**
@@ -71,8 +77,18 @@ class CompaniesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:company|max:255',
+            'address' => 'required|unique:company|max:255'
+        ]);
+
+        $company = Company.findOrFail($id);
+        $company->fill($validated);
+        $company->save();
+
+        return view('companies.show', compact('companies'));
     }
+
 
     /**
      * Remove the specified resource from storage.

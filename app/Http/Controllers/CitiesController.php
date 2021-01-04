@@ -36,7 +36,11 @@ class CitiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:cities|max:255'
+        ]);
+        $ad = Cities::create($validated);
+        return view('cities.show', compact('cities')); 
     }
 
     /**
@@ -59,7 +63,8 @@ class CitiesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cities = City.findOrFail($id);
+        return view('cities.edit', compact('city'));
     }
 
     /**
@@ -71,7 +76,15 @@ class CitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:city|max:255'
+        ]);
+
+        $city = City.findOrFail($id);
+        $city->fill($validated);
+        $city->save();
+
+        return view('cities.show', compact('cities'));
     }
 
     /**
