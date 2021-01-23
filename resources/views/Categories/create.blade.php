@@ -9,7 +9,7 @@
         @csrf
 
         <div class="form-group">
-            <label for="name">Country name</label>
+            <label for="name">Category name</label>
             <input value="{{old('name') }}" name="name" type="text" class="form-control" id="name">
             @if($errors->has('name')) 
             <span class="text-danger" > {{$errors->first('name')}}</span>
@@ -17,7 +17,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary float-right">Save</button>
-        <a href="{{route('countries.index') }}" class="btn btn-link">Cancel</a>
+        <a href="{{route('categories.index') }}" class="btn btn-link">Cancel</a>
     </form>
 </div>
 @endsection

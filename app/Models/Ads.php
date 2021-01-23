@@ -14,7 +14,7 @@ class Ads extends Model
         'conditions',
         'whatDoWeOffer',
         'linkForApplication',
-        'WorkFromHome', 
+        'workFromHome', 
         'description',
         'category'
     ];

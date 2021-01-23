@@ -8,4 +8,8 @@
 </ul>
 
 <a href="{{ url()->previous() }}" class="btn btn-outline-primary">Back</a>
+
+@csrf
+@method('DELETE')
+<button type="submit" onclick="confirm('Are you sure?')" class="btn btn-danger">Delete<button>
 </div>

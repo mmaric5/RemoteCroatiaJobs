@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class LanguageController extends Controller
+class ContinentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,8 @@ class LanguageController extends Controller
      */
     public function index()
     {
-        $language = Languages::all();
-        dd($language);
+        $continent = Continent::all();
+        dd($continent);
     }
 
     /**
@@ -36,10 +36,10 @@ class LanguageController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|unique:language|max:255',
+            'name' => 'required|unique:continent|max:255',
         ]);
-        $ad = Language::create($validated);
-        return view('language.show', compact('language')); 
+        $ad = Continent::create($validated);
+        return view('continents.show', compact('continent')); 
     }
 
     /**
@@ -50,8 +50,8 @@ class LanguageController extends Controller
      */
     public function show($id)
     {
-        $language = Language::findOrFail($id);
-        return view('language.show', compact('language'));
+        $continent = Continent::findOrFail($id);
+        return view('continents.show', compact('continent'));
 
     }
 
@@ -63,8 +63,8 @@ class LanguageController extends Controller
      */
     public function edit($id)
     {
-        $language = Language.findOrFail($id);
-        return view('languages.edit', compact('language'));
+        $continent = Continent.findOrFail($id);
+        return view('continents.edit', compact('continent'));
     }
 
     /**
@@ -77,14 +77,14 @@ class LanguageController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'name' => 'required|unique:language|max:255'
+            'name' => 'required|unique:continent|max:255'
         ]);
 
-        $languages = Languages.findOrFail($id);
-        $languages->fill($validated);
-        $languages->save();
+        $continent = Continent.findOrFail($id);
+        $continent->fill($validated);
+        $continent->save();
 
-        return view('languages.show', compact('languages'));
+        return view('continents.show', compact('continents'));
     }
 
     /**

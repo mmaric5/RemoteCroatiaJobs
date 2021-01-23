@@ -28,9 +28,9 @@ class CreateAdsTable extends Migration
             $table->foreign('drivingLicense_id')->references('id')->on('driving_license'); 
             $table->unsignedBigInteger('language_id');
             $table->foreign('language_id')->references('id')->on('languages'); 
-            $table->unsignedBigInteger('typeOfWorks_id');
-            $table->foreign('typeOfWorks_id')->references('id')->on('typeOfWorks'); 
-            $table->boolean('WorkFromHome');		
+            $table->unsignedBigInteger('typeOfWork_id');
+            $table->foreign('typeOfWork_id')->references('id')->on('typeOfWorks'); 
+            $table->boolean('workFromHome');		
             $table->string('description', 255)->nullable();
             $table->string('category', 50);
             $table->unsignedBigInteger('companies_id');

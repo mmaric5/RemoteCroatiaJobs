@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ContinentController extends Controller
+class QualificationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,8 @@ class ContinentController extends Controller
      */
     public function index()
     {
-        $continent = Continent::all();
-        dd($continent);
+        $qualification = Qualifications::all();
+        dd($qualification);
     }
 
     /**
@@ -36,10 +36,10 @@ class ContinentController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|unique:continent|max:255',
+            'name' => 'required|unique:qualification|max:255',
         ]);
-        $ad = Continent::create($validated);
-        return view('continent.show', compact('continent')); 
+        $ad = Qualification::create($validated);
+        return view('qualifications.show', compact('qualification')); 
     }
 
     /**
@@ -50,8 +50,8 @@ class ContinentController extends Controller
      */
     public function show($id)
     {
-        $continent = Continent::findOrFail($id);
-        return view('continent.show', compact('continent'));
+        $qualification = Qualifications::findOrFail($id);
+        return view('qualifications.show', compact('qualification'));
 
     }
 
@@ -63,8 +63,8 @@ class ContinentController extends Controller
      */
     public function edit($id)
     {
-        $continent = Continent.findOrFail($id);
-        return view('continents.edit', compact('continent'));
+        $qualification = qualification.findOrFail($id);
+        return view('qualifications.edit', compact('qualification'));
     }
 
     /**
@@ -77,14 +77,14 @@ class ContinentController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'name' => 'required|unique:continent|max:255'
+            'name' => 'required|unique:qualification|max:255'
         ]);
 
-        $continent = Continent.findOrFail($id);
-        $continent->fill($validated);
-        $continent->save();
+        $qualifications = qualifications.findOrFail($id);
+        $qualifications->fill($validated);
+        $qualifications->save();
 
-        return view('continents.show', compact('continents'));
+        return view('qualifications.show', compact('qualification'));
     }
 
     /**

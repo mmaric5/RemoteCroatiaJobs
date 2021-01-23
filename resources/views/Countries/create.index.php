@@ -4,12 +4,12 @@
 
 <div class="mt-5 col-sm-6 mx-auto">
 
-    <form action="{{route('categories.store') }}" method="POST">
+    <form action="{{route('countries.store') }}" method="POST">
 
         @csrf
 
         <div class="form-group">
-            <label for="name">Qualification name</label>
+            <label for="name">Country name</label>
             <input value="{{old('name') }}" name="name" type="text" class="form-control" id="name">
             @if($errors->has('name')) 
             <span class="text-danger" > {{$errors->first('name')}}</span>

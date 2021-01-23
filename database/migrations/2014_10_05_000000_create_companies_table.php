@@ -15,10 +15,10 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->string('Name', 100);
-            $table->string('Address', 100);
-            $table->unsignedBigInteger('cities_id');
-            $table->foreign('cities_id')->references('id')->on('cities');
+            $table->string('name', 100);
+            $table->string('address', 100);
+            $table->unsignedBigInteger('city_id');
+            $table->foreign('city_id')->references('id')->on('cities');
             $table->timestamps();
         });
     }

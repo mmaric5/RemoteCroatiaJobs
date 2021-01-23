@@ -39,7 +39,7 @@ class DrivingLicenseController extends Controller
             'name' => 'required|unique:drivingLicense|max:255',
         ]);
         $ad = DrivingLicense::create($validated);
-        return view('drivingLicense.show', compact('drivingLicense')); 
+        return view('drivingLicenses.show', compact('drivingLicense')); 
     }
 
     /**
@@ -51,7 +51,7 @@ class DrivingLicenseController extends Controller
     public function show($id)
     {
         $drivingLicense = DrivingLicense::findOrFail($id);
-        return view('drivingLicense.show', compact('drivingLicense'));
+        return view('drivingLicenses.show', compact('drivingLicense'));
 
     }
 

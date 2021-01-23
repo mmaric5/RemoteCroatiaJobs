@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class QualificationController extends Controller
+class LanguageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,8 @@ class QualificationController extends Controller
      */
     public function index()
     {
-        $qualification = Qualifications::all();
-        dd($qualification);
+        $language = Languages::all();
+        dd($language);
     }
 
     /**
@@ -36,10 +36,10 @@ class QualificationController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|unique:qualification|max:255',
+            'name' => 'required|unique:language|max:255',
         ]);
-        $ad = Qualification::create($validated);
-        return view('qualification.show', compact('qualification')); 
+        $ad = Language::create($validated);
+        return view('languages.show', compact('language')); 
     }
 
     /**
@@ -50,8 +50,8 @@ class QualificationController extends Controller
      */
     public function show($id)
     {
-        $qualification = Qualifications::findOrFail($id);
-        return view('qualification.show', compact('qualification'));
+        $language = Language::findOrFail($id);
+        return view('languages.show', compact('language'));
 
     }
 
@@ -63,7 +63,8 @@ class QualificationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $language = Language.findOrFail($id);
+        return view('languages.edit', compact('language'));
     }
 
     /**
@@ -75,7 +76,15 @@ class QualificationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:language|max:255'
+        ]);
+
+        $languages = Languages.findOrFail($id);
+        $languages->fill($validated);
+        $languages->save();
+
+        return view('languages.show', compact('languages'));
     }
 
     /**

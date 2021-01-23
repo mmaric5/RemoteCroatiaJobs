@@ -4,7 +4,7 @@
 
 <div class="mt-5 col-sm-6 mx-auto">
 
-    <form action="{{route('categories.store') }}" method="POST">
+    <form action="{{route('companies.store') }}" method="POST">
 
         @csrf
 
@@ -25,7 +25,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary float-right">Save</button>
-        <a href="{{route('countries.index') }}" class="btn btn-link">Cancel</a>
+        <a href="{{route('companies.index') }}" class="btn btn-link">Cancel</a>
     </form>
 </div>
 @endsection

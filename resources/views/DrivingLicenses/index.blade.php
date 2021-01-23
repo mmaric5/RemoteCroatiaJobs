@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="{{ route('drivingLicense.create') }}" class="btn btn-primary mt-5">Add</a>
+<a href="{{ route('drivingLicenses.create') }}" class="btn btn-primary mt-5">Add</a>
 <div class="container">
 <table class="table table-striped">
   <thead>
@@ -17,8 +17,8 @@
 <td>{{ $drivingLicense->id }}</td>
 <td>{{ $drivingLicense->name }}</td>
 <td>
-<a class="btn btn-outline-primary" href="{{ route('drivingLicense.show', ['drivingLicense' => $drivingLicense->id]) }}">Details</a>
-<a class="btn btn-outline-primary" href="{{ route('drivingLicense.edit', ['drivingLicense' => $drivingLicense->id]) }}">Edit</a>
+<a class="btn btn-outline-primary" href="{{ route('drivingLicenses.show', ['drivingLicense' => $drivingLicense->id]) }}">Details</a>
+<a class="btn btn-outline-primary" href="{{ route('drivingLicenses.edit', ['drivingLicense' => $drivingLicense->id]) }}">Edit</a>
 </td>
 </tr>
 @endforeach

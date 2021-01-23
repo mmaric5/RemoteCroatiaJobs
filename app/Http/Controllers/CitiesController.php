@@ -14,7 +14,7 @@ class CitiesController extends Controller
     public function index()
     {
         $cities = Cities::all();
-        return view('cities.index', compact('cities'));
+        return view('cities.index', compact('city'));
 
     }
 
@@ -40,7 +40,7 @@ class CitiesController extends Controller
             'name' => 'required|unique:cities|max:255'
         ]);
         $ad = Cities::create($validated);
-        return view('cities.show', compact('cities')); 
+        return view('cities.show', compact('city')); 
     }
 
     /**
@@ -52,7 +52,7 @@ class CitiesController extends Controller
     public function show($id)
     {
         $cities = Cities::findOrFail($id);
-        return view('cities.show', compact('cities'));
+        return view('cities.show', compact('city'));
     }
 
     /**
@@ -84,7 +84,7 @@ class CitiesController extends Controller
         $city->fill($validated);
         $city->save();
 
-        return view('cities.show', compact('cities'));
+        return view('cities.show', compact('city'));
     }
 
     /**

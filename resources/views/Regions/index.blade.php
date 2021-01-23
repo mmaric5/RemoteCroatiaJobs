@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="{{ route('region.create') }}" class="btn btn-primary mt-5">Add</a>
+<a href="{{ route('regions.create') }}" class="btn btn-primary mt-5">Add</a>
 <div class="container">
 <table class="table table-striped">
   <thead>
@@ -18,8 +18,8 @@
 <td>{{ $region->id }}</td>
 <td>{{ $region->name }}</td>
 <td>
-<a class="btn btn-outline-primary" href="{{ route('region.show', ['region' => $region->id]) }}">Details</a>
-<a class="btn btn-outline-primary" href="{{ route('region.edit', ['region' => $region->id]) }}">Edit</a>
+<a class="btn btn-outline-primary" href="{{ route('regions.show', ['region' => $region->id]) }}">Details</a>
+<a class="btn btn-outline-primary" href="{{ route('regions.edit', ['region' => $region->id]) }}">Edit</a>
 </td>
 </tr>
 @endforeach

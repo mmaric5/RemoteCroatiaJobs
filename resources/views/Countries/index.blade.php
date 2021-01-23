@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="{{ route('country.create') }}" class="btn btn-primary mt-5">Add</a>
+<a href="{{ route('countries.create') }}" class="btn btn-primary mt-5">Add</a>
 <div class="container">
 <table class="table table-striped">
   <thead>
@@ -18,8 +18,8 @@
 <td>{{ $country->id }}</td>
 <td>{{ $country->name }}</td>
 <td>
-<a class="btn btn-outline-primary" href="{{ route('country.show', ['country' => $country->id]) }}">Details</a>
-<a class="btn btn-outline-primary" href="{{ route('country.edit', ['country' => $country->id]) }}">Edit</a>
+<a class="btn btn-outline-primary" href="{{ route('countries.show', ['country' => $country->id]) }}">Details</a>
+<a class="btn btn-outline-primary" href="{{ route('countries.edit', ['country' => $country->id]) }}">Edit</a>
 </td>
 </tr>
 @endforeach

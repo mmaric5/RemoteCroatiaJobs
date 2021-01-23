@@ -40,7 +40,7 @@ class CategoryController extends Controller
             'name' => 'required|unique:category|max:255'
         ]);
         $ad = Category::create($validated);
-        return view('category.show', compact('category')); 
+        return view('categories.show', compact('category')); 
     }
 
     /**
@@ -52,7 +52,7 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = Category::findOrFail($id);
-        return view('category.show', compact('category'));
+        return view('categories.show', compact('category'));
     }
 
     /**
@@ -84,7 +84,7 @@ class CategoryController extends Controller
         $category->fill($validated);
         $category->save();
 
-        return view('categories.show', compact('categories'));
+        return view('categories.show', compact('category'));
 
     }
 

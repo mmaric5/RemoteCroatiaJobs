@@ -39,7 +39,7 @@ class RegionsController extends Controller
             'name' => 'required|unique:regions|max:255',
         ]);
         $ad = Regions::create($validated);
-        return view('regions.show', compact('regions')); 
+        return view('regions.show', compact('region')); 
     }
 
     /**
@@ -51,7 +51,7 @@ class RegionsController extends Controller
     public function show($id)
     {
         $region = Regions::findOrFail($id);
-        return view('region.show', compact('region'));
+        return view('regions.show', compact('region'));
 
     }
 
@@ -84,7 +84,7 @@ class RegionsController extends Controller
         $regions->fill($validated);
         $regions->save();
 
-        return view('regions.show', compact('regions'));
+        return view('regions.show', compact('region'));
     }
     /**
      * Remove the specified resource from storage.

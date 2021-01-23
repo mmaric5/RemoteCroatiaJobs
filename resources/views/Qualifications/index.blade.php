@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="{{ route('qualification.create') }}" class="btn btn-primary mt-5">Add</a>
+<a href="{{ route('qualifications.create') }}" class="btn btn-primary mt-5">Add</a>
 <div class="container">
 <table class="table table-striped">
   <thead>
@@ -17,8 +17,8 @@
 <td>{{ $qualification->id }}</td>
 <td>{{ $qualification->name }}</td>
 <td>
-<a class="btn btn-outline-primary" href="{{ route('qualification.show', ['qualification' => $qualification->id]) }}">Details</a>
-<a class="btn btn-outline-primary" href="{{ route('qualification.edit', ['qualification' => $qualification->id]) }}">Edit</a>
+<a class="btn btn-outline-primary" href="{{ route('qualifications.show', ['qualification' => $qualification->id]) }}">Details</a>
+<a class="btn btn-outline-primary" href="{{ route('qualifications.edit', ['qualification' => $qualification->id]) }}">Edit</a>
 </td>
 </tr>
 @endforeach

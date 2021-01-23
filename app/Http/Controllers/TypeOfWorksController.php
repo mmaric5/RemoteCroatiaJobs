@@ -39,7 +39,7 @@ class TypeOfWorksController extends Controller
             'name' => 'required|unique:typeOfWorks|max:255',
         ]);
         $ad = TypeOfWorks::create($validated);
-        return view('typeOfWorks.show', compact('typeOfWorks')); 
+        return view('typeOfWorks.show', compact('typeOfWork')); 
     }
 
     /**
@@ -51,7 +51,7 @@ class TypeOfWorksController extends Controller
     public function show($id)
     {
         $typeOfWork = TypeOfWork::findOrFail($id);
-        return view('typeOfWorks.show', compact('typeOfWorks'));
+        return view('typeOfWorks.show', compact('typeOfWork'));
 
     }
 
